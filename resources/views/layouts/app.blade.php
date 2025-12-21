@@ -1,36 +1,107 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>@yield('title', 'Zwart-Wit Fotomuseum')</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<body class="min-h-screen" style="background-color:#7B1B38; color:white;">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <header style="background-color:#ffffff; border-bottom:1px solid #e5e7eb; padding-top:20px;">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+            <nav class="flex items-center justify-center gap-3 sm:gap-4 py-4 text-sm font-medium">
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+                <a href="{{ route('home') }}"
+                   class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
+                   style="@if(request()->routeIs('home'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
+                    Home
+                </a>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                <a href="{{ url('/news') }}"
+                   class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
+                   style="@if(request()->is('news*'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
+                    News
+                </a>
+
+                <a href="{{ url('/photos') }}"
+                   class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
+                   style="@if(request()->is('photos*'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
+                    Photos
+                </a>
+
+                @auth
+                    <a href="{{ url('/photos/favorites') }}"
+                       class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
+                       style="@if(request()->is('photos/favorites'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
+                        Favorieten
+                    </a>
+                @endauth
+
+                @auth
+                    <a href="{{ route('profile.edit') }}"
+                       class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
+                       style="@if(request()->routeIs('profile.*'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
+                        Profile
+                    </a>
+
+                    <a href="{{ route('dashboard') }}"
+                       class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
+                       style="@if(request()->routeIs('dashboard'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
+                        Dashboard
+                    </a>
+                @endauth
+
+                @guest
+                    <a href="{{ route('login') }}"
+                       class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
+                       style="color:#7B1B38;">
+                        Login
+                    </a>
+
+                    <a href="{{ route('register') }}"
+                       class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
+                       style="color:#7B1B38;">
+                        Register
+                    </a>
+                @endguest
+
+            </nav>
+
         </div>
-    </body>
+    </header>
+
+    <main class="py-10 px-4 sm:px-6 lg:px-8" style="color:white;">
+        @yield('content')
+    </main>
+
+    <footer style="background-color:#ffffff; border-top:1px solid #e5e7eb;" class="mt-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-zinc-500">
+
+            <div class="space-y-1">
+                <p class="font-semibold tracking-wide" style="color:#7B1B38;">
+                    My Black & White Photo Museum
+                </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4 sm:justify-end">
+                <a href="{{ url('/contact') }}"
+                   class="transition"
+                   style="color:#7B1B38;">
+                    Contact
+                </a>
+                <a href="{{ url('/faq') }}"
+                   class="transition"
+                   style="color:#7B1B38;">
+                    FAQ
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
 </html>
