@@ -185,7 +185,6 @@
             text-decoration: underline;
         }
 
-        /* MAIN COLUMN */
 
         .admin-main {
             flex: 1;
@@ -448,7 +447,6 @@
         <div>
             <div class="sidebar-section-label">Collectie & inhoud</div>
             <nav class="sidebar-nav">
-                {{-- Deze pagina’s bestaan nog niet in stap 5 → later vervangen --}}
                 <a href="#"
                    class="sidebar-link {{ request()->is('admin/photos*') ? 'is-active' : '' }}">
                     <span class="sidebar-link-icon">🖼</span>
@@ -484,8 +482,7 @@
         <div>
             <div class="sidebar-section-label">Gebruikers</div>
             <nav class="sidebar-nav">
-                {{-- Bestaat nog niet in stap 5 → later vervangen --}}
-                <a href="#"
+                <a href="{{ route('admin.users.index') }}"
                    class="sidebar-link {{ request()->is('admin/users*') ? 'is-active' : '' }}">
                     <span class="sidebar-link-icon">👥</span>
                     <span class="sidebar-link-text">Users</span>

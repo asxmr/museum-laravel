@@ -187,8 +187,9 @@
             Alles in dezelfde zwart-wit / bordeaux museumstijl.
         </p>
 
-        {{-- Links die nog niet bestaan in stap 5 => voorlopig # --}}
+        
         <div class="admin-actions" style="margin-top: 14px;">
+            <a href="{{ route('admin.users.index') }}" class="btn-admin-primary">👥 Gebruikers beheren</a>
             <a href="#" class="btn-admin-primary">🖼️ Foto’s beheren</a>
             <a href="#" class="btn-admin-secondary">🏷️ Fotocategorieën</a>
             <a href="#" class="btn-admin-secondary">📰 Nieuws</a>
@@ -202,7 +203,7 @@
         <div class="admin-stat-row">
             <div class="admin-stat">
                 <div class="admin-stat-label">Gebruikers</div>
-                <div class="admin-stat-value">—</div>
+                <div class="admin-stat-value">{{ $usersCount }}</div>
                 <div class="admin-stat-hint">Totaal geregistreerd</div>
             </div>
 
