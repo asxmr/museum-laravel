@@ -467,7 +467,7 @@
             </h2>
         </div>
 
-        <a href="{{ url('/photos') }}"
+        <a href="#"
            style="font-size:0.9rem; color:rgba(255,255,255,0.8); text-decoration:underline;">
             Naar alle foto’s →
         </a>
@@ -482,7 +482,7 @@
         <div class="home-photo-row">
             @foreach($carouselPhotos->take(5) as $photo)
                 <div class="home-photo-card-wrapper">
-                    <a href="{{ url('/photos/'.$photo->id) }}" style="text-decoration:none;">
+                    <a href="#" style="text-decoration:none;">
                         <div class="home-photo-card">
                             @if($photo->image_url)
                                 <div class="home-photo-image">
@@ -522,7 +522,7 @@
             </h2>
         </div>
 
-        <a href="{{ url('/news') }}"
+        <a href="#"
            style="font-size:0.85rem; color:rgba(255,255,255,0.8); text-decoration:underline;">
             Bekijk alle nieuwsberichten →
         </a>
@@ -589,7 +589,7 @@
             </p>
 
             <div class="home-btn-row">
-                <a href="{{ url('/faq') }}"
+                <a href="#"
                    style="
                        display:inline-block;
                        border-radius:9999px;
@@ -604,7 +604,7 @@
                     Naar de FAQ
                 </a>
 
-                <a href="{{ url('/contact') }}"
+                <a href="#"
                    style="
                        display:inline-block;
                        border-radius:9999px;

@@ -21,20 +21,20 @@
                     Home
                 </a>
 
-                <a href="{{ url('/news') }}"
+                <a href="#"
                    class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
                    style="@if(request()->is('news*'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
                     News
                 </a>
 
-                <a href="{{ url('/photos') }}"
+                <a href="#"
                    class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
                    style="@if(request()->is('photos*'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
                     Photos
                 </a>
 
                 @auth
-                    <a href="{{ url('/photos/favorites') }}"
+                    <a href="#"
                        class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
                        style="@if(request()->is('photos/favorites'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
                         Favorieten
@@ -42,13 +42,13 @@
                 @endauth
 
                 @auth
-                    <a href="{{ route('profile.edit') }}"
+                    <a href="#"
                        class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
                        style="@if(request()->routeIs('profile.*'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
                         Profile
                     </a>
 
-                    <a href="{{ route('dashboard') }}"
+                    <a href="#"
                        class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
                        style="@if(request()->routeIs('dashboard'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
                         Dashboard
@@ -88,12 +88,12 @@
             </div>
 
             <div class="flex flex-wrap gap-4 sm:justify-end">
-                <a href="{{ url('/contact') }}"
+                <a href="#"
                    class="transition"
                    style="color:#7B1B38;">
                     Contact
                 </a>
-                <a href="{{ url('/faq') }}"
+                <a href="#"
                    class="transition"
                    style="color:#7B1B38;">
                     FAQ
