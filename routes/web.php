@@ -6,9 +6,13 @@ use Illuminate\Support\Facades\Route;
 
 //Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\PhotoCategoryController as AdminPhotoCategoryController;
+use App\Http\Controllers\Admin\PhotoController as AdminPhotoController;
 
 //Models
 use App\Models\User;
+use App\Models\Photo;
+use App\Models\PhotoPhotoCategory;
 
 //Publieke routes
 
@@ -33,11 +37,18 @@ Route::middleware(['auth', 'admin'])
         Route::get('/dashboard', function () {
             return view('admin.dashboard', [
                 'usersCount' => \App\Models\User::count(),
+                'photosCount' => \App\Models\Photo::count(),
             ]);
         })->name('dashboard');
 
         //Userbeheer
         Route::resource('users', AdminUserController::class)->except(['show']);
+
+        // Fotocategorieën beheer
+        Route::resource('photo-categories', AdminPhotoCategoryController::class)->except('show');
+        
+        // Foto's beheer
+        Route::resource('photos', AdminPhotoController::class)->except('show');
     });
 
 require __DIR__.'/auth.php';
