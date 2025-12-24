@@ -190,8 +190,8 @@
         
         <div class="admin-actions" style="margin-top: 14px;">
             <a href="{{ route('admin.users.index') }}" class="btn-admin-primary">👥 Gebruikers beheren</a>
-            <a href="#" class="btn-admin-primary">🖼️ Foto’s beheren</a>
-            <a href="#" class="btn-admin-secondary">🏷️ Fotocategorieën</a>
+            <a href="{{ route('admin.photos.index') }}" class="btn-admin-primary">🖼️ Foto’s beheren</a>
+            <a href="{{ route('admin.photo-categories.index') }}" class="btn-admin-secondary">🏷️ Fotocategorieën</a>
             <a href="#" class="btn-admin-secondary">📰 Nieuws</a>
             <a href="#" class="btn-admin-secondary">❓ FAQ</a>
         </div>
@@ -209,7 +209,7 @@
 
             <div class="admin-stat">
                 <div class="admin-stat-label">Foto’s</div>
-                <div class="admin-stat-value">—</div>
+                <div class="admin-stat-value">{{ $photosCount ?? '—' }}</div>
                 <div class="admin-stat-hint">In collectie</div>
             </div>
 

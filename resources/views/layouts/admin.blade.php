@@ -447,13 +447,13 @@
         <div>
             <div class="sidebar-section-label">Collectie & inhoud</div>
             <nav class="sidebar-nav">
-                <a href="#"
+                <a href="{{ route('admin.photos.index') }}"
                    class="sidebar-link {{ request()->is('admin/photos*') ? 'is-active' : '' }}">
                     <span class="sidebar-link-icon">🖼</span>
                     <span class="sidebar-link-text">Foto's</span>
                 </a>
 
-                <a href="#"
+                <a href="{{ route('admin.photo-categories.index') }}"
                    class="sidebar-link {{ request()->is('admin/photo-categories*') ? 'is-active' : '' }}">
                     <span class="sidebar-link-icon">🏷</span>
                     <span class="sidebar-link-text">Fotocategorieën</span>
