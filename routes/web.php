@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\PhotoCategoryController as AdminPhotoCategoryController;
 use App\Http\Controllers\Admin\PhotoController as AdminPhotoController;
+use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 
 //Models
 use App\Models\User;
 use App\Models\Photo;
 use App\Models\PhotoPhotoCategory;
+use App\Models\News;
 
 //Publieke routes
 
@@ -38,6 +40,7 @@ Route::middleware(['auth', 'admin'])
             return view('admin.dashboard', [
                 'usersCount' => \App\Models\User::count(),
                 'photosCount' => \App\Models\Photo::count(),
+                'newsCount'  => \App\Models\News::count(),
             ]);
         })->name('dashboard');
 
@@ -49,6 +52,9 @@ Route::middleware(['auth', 'admin'])
         
         // Foto's beheer
         Route::resource('photos', AdminPhotoController::class)->except('show');
+
+        //Nieuwsbeheer
+        Route::resource('news', AdminNewsController::class);
     });
 
 require __DIR__.'/auth.php';
