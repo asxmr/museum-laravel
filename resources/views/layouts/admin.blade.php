@@ -459,7 +459,7 @@
                     <span class="sidebar-link-text">Fotocategorieën</span>
                 </a>
 
-                <a href="#"
+                <a href="{{ route('admin.news.index') }}"
                    class="sidebar-link {{ request()->is('admin/news*') ? 'is-active' : '' }}">
                     <span class="sidebar-link-icon">📰</span>
                     <span class="sidebar-link-text">Nieuws</span>
