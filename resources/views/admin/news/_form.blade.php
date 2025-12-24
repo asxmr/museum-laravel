@@ -1,12 +1,4 @@
-@extends('layouts.admin')
- 
-@section('title', 'Nieuws')
- 
-@section('content')
-    <p> Deze pagina wordt later uitgewerkt.</p>
-@endsection
- 
- <style>
+<style>
     .admin-form-card {
         background: rgba(6, 6, 10, 0.9);
         border-radius: 18px;
