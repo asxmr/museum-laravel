@@ -17,8 +17,8 @@ use App\Models\User;
 use App\Models\Photo;
 use App\Models\PhotoPhotoCategory;
 use App\Models\News;
-use App\Models\FaqCategory
-use App\Models\Faq
+use App\Models\FaqCategory;
+use App\Models\Faq;
 //Publieke routes
 
 // Homepagina 
