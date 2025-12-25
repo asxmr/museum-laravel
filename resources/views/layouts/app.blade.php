@@ -34,7 +34,7 @@
                 </a>
 
                 @auth
-                    <a href="#"
+                    <a href="{{ route('photos.favorites') }}"
                        class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
                        style="@if(request()->is('photos/favorites'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
                         Favorieten
