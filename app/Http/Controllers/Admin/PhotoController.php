@@ -13,6 +13,7 @@ class PhotoController extends Controller
     public function index()
     {
         $photos = Photo::with('category')
+            ->withCount(['favorites'])
             ->orderBy('photo_category_id')
             ->orderBy('sort_order')
             ->orderBy('title')
@@ -108,6 +109,8 @@ class PhotoController extends Controller
 
     public function destroy(Photo $photo)
     {
+        $photo->favorites()->delete();
+
         if ($photo->image_path) {
             Storage::disk('public')->delete($photo->image_path);
         }

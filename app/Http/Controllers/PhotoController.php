@@ -47,8 +47,30 @@ class PhotoController extends Controller
     {
         abort_unless($photo->is_published, 404);
 
+        $isFavorited = false;
+
+        if (auth()->check()) {
+            $isFavorited = auth()->user()
+                ->favoritePhotos()
+                ->where('photo_id', $photo->id)
+                ->exists();
+        }
+
         return view('photos.show', [
             'photo' => $photo,
+            'isFavorited' => $isFavorited,
         ]);
+    }
+
+    public function favorites(Request $request)
+    {
+        $user = $request->user();
+
+        $photos = $user->favoritePhotos()
+            ->with('category')
+            ->orderBy('favorite_photos.created_at', 'desc')
+            ->paginate(24);
+
+        return view('photos.favorites', compact('photos'));
     }
 }
