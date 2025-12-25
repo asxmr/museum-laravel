@@ -9,13 +9,16 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\PhotoCategoryController as AdminPhotoCategoryController;
 use App\Http\Controllers\Admin\PhotoController as AdminPhotoController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
+use App\Http\Controllers\Admin\FaqCategoryController as AdminFaqCategoryController;
+use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 
 //Models
 use App\Models\User;
 use App\Models\Photo;
 use App\Models\PhotoPhotoCategory;
 use App\Models\News;
-
+use App\Models\FaqCategory
+use App\Models\Faq
 //Publieke routes
 
 // Homepagina 
@@ -55,6 +58,12 @@ Route::middleware(['auth', 'admin'])
 
         //Nieuwsbeheer
         Route::resource('news', AdminNewsController::class);
+
+        // FAQ-categorieën beheer
+        Route::resource('faq-categories', AdminFaqCategoryController::class)->except('show');
+
+        // FAQ-vragen beheer
+        Route::resource('faqs', AdminFaqController::class)->except('show');        
     });
 
 require __DIR__.'/auth.php';
