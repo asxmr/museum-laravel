@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 //Publieke controllers
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\PhotoFavoriteController;
 
 //Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -20,6 +21,8 @@ use App\Models\PhotoPhotoCategory;
 use App\Models\News;
 use App\Models\FaqCategory;
 use App\Models\Faq;
+use App\Models\FavoritePhoto;
+
 //Publieke routes
 
 // Homepagina 
@@ -38,6 +41,10 @@ Route::get('/dashboard', function () {
 Route::get('/photos', [PhotoController::class, 'index'])->name('photos.index');
 Route::get('/photos/{photo}', [PhotoController::class, 'show'])->name('photos.show');
 
+// Favoriet toggelen (alleen ingelogde users)
+Route::post('/photos/{photo}/favorite', [PhotoFavoriteController::class, 'toggle'])
+    ->name('photos.favorite')
+    ->middleware('auth');
 //Admin routes
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
