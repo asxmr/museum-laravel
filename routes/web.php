@@ -45,6 +45,13 @@ Route::get('/photos/{photo}', [PhotoController::class, 'show'])->name('photos.sh
 Route::post('/photos/{photo}/favorite', [PhotoFavoriteController::class, 'toggle'])
     ->name('photos.favorite')
     ->middleware('auth');
+
+// Mijn favorieten (alleen ingelogde users)
+Route::get('/favorites', [PhotoController::class, 'favorites'])
+    ->name('photos.favorites')
+    ->middleware('auth');
+
+    
 //Admin routes
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
