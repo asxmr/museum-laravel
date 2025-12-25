@@ -113,6 +113,37 @@
         margin-bottom: 1.4rem;
     }
 
+    .photo-favorite-form {
+        margin-bottom: 1.6rem;
+    }
+
+    .favorite-button {
+        border-radius: 999px;
+        border: 1px solid #7B1B38;
+        background: #ffffff;
+        color: #7B1B38;
+        padding: 0.55rem 1.3rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .favorite-button--active {
+        background: #7B1B38;
+        color: white;
+    }
+
+    .favorite-hint {
+        font-size: 0.75rem;
+        color: #7a7a7a;
+        margin-top: 0.3rem;
+    }
+
     .photo-description {
         font-family: "Times New Roman", serif;
         font-size: 0.98rem;
@@ -135,6 +166,12 @@
 
 <div class="photo-show-page">
 
+    @php
+        $isFavorited = auth()->check()
+            ? auth()->user()->favoritePhotos()->where('photo_id', $photo->id)->exists()
+            : false;
+    @endphp
+
     <a href="{{ route('photos.index') }}" class="photo-back-link">
         ← Terug naar galerij
     </a>
@@ -142,7 +179,7 @@
     <div class="photo-show-layout">
 
         <div class="photo-frame">
-            @if ($photo->image_url ?? null)
+            @if ($photo->image_url)
                 <div class="photo-frame-inner">
                     <img src="{{ $photo->image_url }}" alt="{{ $photo->title }}">
                 </div>
@@ -175,6 +212,23 @@
                     Toegevoegd op {{ $photo->created_at->format('d/m/Y') }}
                 @endif
             </div>
+
+            @auth
+                <form method="POST"
+                      action="{{ route('photos.favorite', $photo) }}"
+                      class="photo-favorite-form">
+                    @csrf
+
+                    <button type="submit"
+                        class="favorite-button {{ $isFavorited ? 'favorite-button--active' : '' }}">
+                        {{ $isFavorited ? '★ In favorieten' : '☆ Bewaar in favorieten' }}
+                    </button>
+
+                    <div class="favorite-hint">
+                        {{ $isFavorited ? 'Deze foto zit in jouw favorieten.' : 'Klik om deze foto op te slaan.' }}
+                    </div>
+                </form>
+            @endauth
 
             <div class="photo-description">
                 @if ($photo->description)
