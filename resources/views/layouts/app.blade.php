@@ -27,7 +27,7 @@
                     News
                 </a>
 
-                <a href="#"
+                <a href="{{ route('photos.index') }}"
                    class="px-4 sm:px-5 py-2 rounded-full transition text-sm"
                    style="@if(request()->is('photos*'))background-color:#591427;color:white;@else color:#7B1B38; @endif">
                     Photos

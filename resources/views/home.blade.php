@@ -467,7 +467,7 @@
             </h2>
         </div>
 
-        <a href="#"
+        <a href="{{ route('photos.index') }}"
            style="font-size:0.9rem; color:rgba(255,255,255,0.8); text-decoration:underline;">
             Naar alle foto’s →
         </a>
@@ -482,7 +482,7 @@
         <div class="home-photo-row">
             @foreach($carouselPhotos->take(5) as $photo)
                 <div class="home-photo-card-wrapper">
-                    <a href="#" style="text-decoration:none;">
+                    <a href="{{ route('photos.show', $photo) }}" style="text-decoration:none;">
                         <div class="home-photo-card">
                             @if($photo->image_url)
                                 <div class="home-photo-image">
@@ -503,7 +503,6 @@
     @endif
 
 </section>
-
 <section class="home-section home-section-spaced" style="padding-bottom: 40px;">
 
     <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px;">
