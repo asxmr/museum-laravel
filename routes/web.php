@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 //Publieke controllers
+use App\Http\Controllers\PhotoController;
 
 //Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -30,6 +31,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Publieke fotogalerij
+Route::get('/photos', [PhotoController::class, 'index'])->name('photos.index');
+Route::get('/photos/{photo}', [PhotoController::class, 'show'])->name('photos.show');
 
 //Admin routes
 Route::middleware(['auth', 'admin'])
