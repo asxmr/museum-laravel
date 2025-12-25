@@ -465,13 +465,13 @@
                     <span class="sidebar-link-text">Nieuws</span>
                 </a>
 
-                <a href="#"
+                <a href="{{ route('admin.faq-categories.index') }}"
                    class="sidebar-link {{ request()->is('admin/faq-categories*') ? 'is-active' : '' }}">
                     <span class="sidebar-link-icon">❓</span>
                     <span class="sidebar-link-text">FAQ-categorieën</span>
                 </a>
 
-                <a href="#"
+                <a href="{{ route('admin.faqs.index') }}"
                    class="sidebar-link {{ request()->is('admin/faqs*') ? 'is-active' : '' }}">
                     <span class="sidebar-link-icon">💬</span>
                     <span class="sidebar-link-text">FAQ-items</span>

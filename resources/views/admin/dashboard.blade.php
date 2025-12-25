@@ -189,11 +189,12 @@
 
         
         <div class="admin-actions" style="margin-top: 14px;">
-            <a href="{{ route('admin.users.index') }}" class="btn-admin-primary">👥 Gebruikers beheren</a>
-            <a href="{{ route('admin.photos.index') }}" class="btn-admin-primary">🖼️ Foto’s beheren</a>
+            <a href="{{ route('admin.users.index') }}" class="btn-admin-primary">👥 Gebruikers</a>
+            <a href="{{ route('admin.photos.index') }}" class="btn-admin-primary">🖼️ Foto’s </a>
+            <a href="{{ route('admin.news.index') }}" class="btn-admin-primary">📰 Nieuws</a>
+            <a href="{{ route('admin.faqs.index') }}" class="btn-admin-primary">❓ FAQ</a>
             <a href="{{ route('admin.photo-categories.index') }}" class="btn-admin-secondary">🏷️ Fotocategorieën</a>
-            <a href="{{ route('admin.news.index') }}" class="btn-admin-secondary">📰 Nieuws</a>
-            <a href="#" class="btn-admin-secondary">❓ FAQ</a>
+            <a href="{{ route('admin.faq-categories.index') }}" class="btn-admin-secondary">🏷️ FAQ  category</a>
         </div>
     </div>
 
