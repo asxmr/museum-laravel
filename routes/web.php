@@ -24,7 +24,9 @@ use App\Models\Faq;
 
 // Homepagina 
 Route::get('/', function () {
-    return view('home');
+        $carouselPhotos = Photo::latest()->take(5)->get();
+
+    return view('home', compact('carouselPhotos'));
 })->name('home');
 
 // User dashboard (Breeze)
