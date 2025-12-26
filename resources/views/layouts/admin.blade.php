@@ -521,7 +521,7 @@
                 </div>
 
                 <div class="topbar-actions">
-                    <a href="#" class="btn-ghost">
+                    <a href="{{ route('profile.edit') }}" class="btn-ghost">
                         <span>Profiel</span>
                     </a>
 
