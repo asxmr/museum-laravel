@@ -18,16 +18,17 @@ class ProfileController extends Controller
         ]);
     }
 
-     */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
 
         $validated = $request->validated();
 
+        if (($validated['email'] ?? null) !== $user->email) {
             $user->email_verified_at = null;
         }
 
+        $user->fill([
             'name'     => $validated['name'],
             'email'    => $validated['email'],
             'username' => $validated['username'] ?? null,
