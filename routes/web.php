@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 //Publieke controllers
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PhotoFavoriteController;
+use App\Http\Controllers\ProfileController;
 
 //Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -50,6 +51,13 @@ Route::post('/photos/{photo}/favorite', [PhotoFavoriteController::class, 'toggle
 Route::get('/favorites', [PhotoController::class, 'favorites'])
     ->name('photos.favorites')
     ->middleware('auth');
+
+//Authenticated user routes (profiel)
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});    
 
     
 //Admin routes
