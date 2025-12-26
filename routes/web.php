@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PhotoFavoriteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PhotoCommentController;
 
 //Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Admin\PhotoController as AdminPhotoController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\FaqCategoryController as AdminFaqCategoryController;
 use App\Http\Controllers\Admin\FaqController as AdminFaqController;
+use App\Http\Controllers\Admin\PhotoCommentController as AdminPhotoCommentController;
 
 //Models
 use App\Models\User;
@@ -23,7 +25,7 @@ use App\Models\News;
 use App\Models\FaqCategory;
 use App\Models\Faq;
 use App\Models\FavoritePhoto;
-
+use App\Models\PhotoComment;
 //Publieke routes
 
 // Homepagina 
@@ -57,7 +59,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});    
+});
+
+// Comments (alleen ingelogde users)
+Route::post('/photos/{photo}/comments', [PhotoCommentController::class, 'store'])
+    ->name('photos.comments.store')
+    ->middleware('auth');
+
+// Publiek profiel van een user
+Route::get('/users/{user}', function (User $user) {
+    return view('users.show', compact('user'));
+})->name('users.show');
 
     
 //Admin routes
@@ -93,6 +105,11 @@ Route::middleware(['auth', 'admin'])
 
         // FAQ-vragen beheer
         Route::resource('faqs', AdminFaqController::class)->except('show');        
+    
+        // Comments verwijderen
+        Route::delete('photo-comments/{photoComment}', [\App\Http\Controllers\Admin\PhotoCommentController::class, 'destroy'])
+        ->name('photo-comments.destroy');
+
     });
 
 require __DIR__.'/auth.php';
