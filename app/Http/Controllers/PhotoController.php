@@ -47,6 +47,9 @@ class PhotoController extends Controller
     {
         abort_unless($photo->is_published, 404);
 
+         $photo->load(['comments.user']);
+
+        
         $isFavorited = false;
 
         if (auth()->check()) {
@@ -73,4 +76,21 @@ class PhotoController extends Controller
 
         return view('photos.favorites', compact('photos'));
     }
+
+    public function store(Request $request, Photo $photo)
+    {
+        $request->validate([
+            'body' => ['required', 'string', 'max:2000'],
+        ]);
+
+        PhotoComment::create([
+            'user_id' => $request->user()->id,
+            'photo_id'=> $photo->id,
+            'body'    => $request->input('body'),
+        ]);
+
+        return back();
+    }
+
+    
 }
