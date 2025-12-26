@@ -44,9 +44,15 @@ class Photo extends Model
         return $this->hasMany(\App\Models\FavoritePhoto::class, 'photo_id');
     }
 
+   
     public function favoritedByUsers()
     {
         return $this->belongsToMany(\App\Models\User::class, 'favorite_photos')
             ->withTimestamps();
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(\App\Models\PhotoComment::class, 'photo_id');
     }
 }
