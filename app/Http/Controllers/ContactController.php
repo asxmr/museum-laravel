@@ -26,15 +26,16 @@ class ContactController extends Controller
         $contact = ContactMessage::create($validated);
 
 
-        $adminEmail = config('mail.from.address', 'admin@ehb.be');
+        $adminEmail = config('mail.admin_email', env('ADMIN_EMAIL', 'admin@ehb.be'));
 
         Mail::raw(
             "Nieuw contactbericht van {$contact->name} <{$contact->email}>\n\n"
             ."Onderwerp: ".($contact->subject ?? '(geen onderwerp)')."\n\n"
             ."Bericht:\n{$contact->message}",
-            function ($message) use ($adminEmail) {
+            function ($message) use ($adminEmail, $contact) {
                 $message->to($adminEmail)
-                        ->subject('Nieuw contactbericht van de fotomuseum-site');
+                ->replyTo($contact->email, $contact->name)
+                ->subject('Nieuw contactbericht van de fotomuseum-site');
             }
         );
 
