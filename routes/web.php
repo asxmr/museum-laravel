@@ -8,6 +8,7 @@ use App\Http\Controllers\PhotoFavoriteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PhotoCommentController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\FaqController;
 
 //Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -76,6 +77,9 @@ Route::get('/users/{user}', function (User $user) {
 // Publieke nieuws-routes
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
+
+// Publieke FAQ-pagina
+Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
     
 //Admin routes
