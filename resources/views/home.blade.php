@@ -588,7 +588,7 @@
             </p>
 
             <div class="home-btn-row">
-                <a href="#"
+                <a href="{{ route('faq.index') }}"
                    style="
                        display:inline-block;
                        border-radius:9999px;

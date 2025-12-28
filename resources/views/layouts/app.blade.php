@@ -93,7 +93,7 @@
                    style="color:#7B1B38;">
                     Contact
                 </a>
-                <a href="#"
+                <a href="{{ route('faq.index') }}"
                    class="transition"
                    style="color:#7B1B38;">
                     FAQ
