@@ -521,7 +521,7 @@
             </h2>
         </div>
 
-        <a href="#"
+        <a href="{{ route('news.index') }}"
            style="font-size:0.85rem; color:rgba(255,255,255,0.8); text-decoration:underline;">
             Bekijk alle nieuwsberichten →
         </a>
