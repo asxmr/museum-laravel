@@ -7,6 +7,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PhotoFavoriteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PhotoCommentController;
+use App\Http\Controllers\NewsController;
 
 //Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -31,8 +32,9 @@ use App\Models\PhotoComment;
 // Homepagina 
 Route::get('/', function () {
         $carouselPhotos = Photo::latest()->take(5)->get();
-
-    return view('home', compact('carouselPhotos'));
+        $latestNews = News::latest('published_at')->take(3)->get();
+        
+    return view('home', compact('carouselPhotos', 'latestNews'));
 })->name('home');
 
 // User dashboard (Breeze)
@@ -70,6 +72,10 @@ Route::post('/photos/{photo}/comments', [PhotoCommentController::class, 'store']
 Route::get('/users/{user}', function (User $user) {
     return view('users.show', compact('user'));
 })->name('users.show');
+
+// Publieke nieuws-routes
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 
     
 //Admin routes
