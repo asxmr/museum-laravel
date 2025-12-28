@@ -603,7 +603,7 @@
                     Naar de FAQ
                 </a>
 
-                <a href="#"
+                <a href="{{ route('contact.create') }}"
                    style="
                        display:inline-block;
                        border-radius:9999px;

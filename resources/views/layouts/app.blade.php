@@ -88,7 +88,7 @@
             </div>
 
             <div class="flex flex-wrap gap-4 sm:justify-end">
-                <a href="#"
+                <a href="{{ route('contact.create') }}"
                    class="transition"
                    style="color:#7B1B38;">
                     Contact
