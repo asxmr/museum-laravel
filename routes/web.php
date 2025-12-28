@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PhotoCommentController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ContactController;
 
 //Admin controllers
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -28,6 +29,8 @@ use App\Models\FaqCategory;
 use App\Models\Faq;
 use App\Models\FavoritePhoto;
 use App\Models\PhotoComment;
+use App\Models\ContactMessage;
+
 //Publieke routes
 
 // Homepagina 
@@ -81,6 +84,9 @@ Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 // Publieke FAQ-pagina
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
+// Publieke contactpagina
+Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
     
 //Admin routes
 Route::middleware(['auth', 'admin'])
