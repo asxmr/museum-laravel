@@ -1,59 +1,247 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📸 Museum – Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📖 Projectomschrijving
 
-## About Laravel
+Dit project is een **data-gedreven webapplicatie** ontwikkeld met **Laravel**, gerealiseerd in het kader van **Project 1 – Laravel** binnen de opleiding **Toegepaste Informatica** aan de **Erasmushogeschool Brussel**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+De applicatie stelt een **museum / fotogalerij** voor waar bezoekers foto’s kunnen bekijken, nieuws lezen, veelgestelde vragen raadplegen en contact opnemen.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Geregistreerde gebruikers beschikken over een profiel en kunnen actief interageren met de inhoud.
+Admins beheren de volledige website via een beveiligd adminpaneel.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Screenshots van de applicatie zijn beschikbaar in de map `/screenshots`.
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 📸 Screenshots
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Screenshots van de applicatie (publieke pagina’s, ingelogde gebruikers en het adminpaneel)
+zijn terug te vinden in de map:
 
-## Laravel Sponsors
+```
+/screenshots
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+De map bevat screenshots van:
 
-### Premium Partners
+* publieke pagina’s (zonder login)
+* pagina’s voor ingelogde gebruikers
+* het beveiligde adminpaneel
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 🚀 Functionaliteiten
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🔐 Authenticatie & accounts
 
-## Code of Conduct
+* Registreren, inloggen en uitloggen
+* “Remember me” functionaliteit
+* Wachtwoord reset
+* Twee rollen:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  * **Gebruiker**
+  * **Admin**
+* Enkel admins kunnen:
 
-## Security Vulnerabilities
+  * andere gebruikers adminrechten toekennen of afnemen
+  * gebruikers manueel aanmaken
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+### 👤 Profielen
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* Elke gebruiker heeft een **publieke profielpagina**
+* Profielen zijn zichtbaar voor **alle bezoekers**, ook zonder login
+* Ingelogde gebruikers kunnen hun **eigen profielgegevens aanpassen**
+* Een profiel bevat:
+
+  * gebruikersnaam
+  * verjaardag
+  * profielfoto (opgeslagen op de server)
+  * “Over mij”-tekst
+
+---
+
+### 🖼️ Fotogalerij (extra feature)
+
+* Overzicht van alle foto’s
+* Detailpagina per foto
+* Foto’s zijn gekoppeld aan **categorieën**
+* Ingelogde gebruikers kunnen:
+
+  * foto’s **opslaan in hun favorieten**
+  * **reacties plaatsen** bij foto’s
+* Favorieten en reacties worden per gebruiker opgeslagen in de database
+
+---
+
+### 📰 Nieuws
+
+* Admin kan nieuwsitems:
+
+  * toevoegen
+  * wijzigen
+  * verwijderen
+* Bezoekers kunnen:
+
+  * een overzicht van alle nieuwsitems bekijken
+  * een detailpagina per nieuwsitem openen
+* Elk nieuwsitem bevat:
+
+  * titel
+  * afbeelding (opgeslagen op de server)
+  * inhoud
+  * publicatiedatum
+
+---
+
+### ❓ FAQ
+
+* FAQ-pagina met:
+
+  * categorieën
+  * vragen en antwoorden
+* Admin kan:
+
+  * categorieën beheren
+  * FAQ-items toevoegen, aanpassen en verwijderen
+* De FAQ is publiek zichtbaar voor alle bezoekers
+
+---
+
+### ✉️ Contact
+
+* Publiek contactformulier
+* Ingezonden berichten:
+
+  * worden opgeslagen in de database
+  * **worden automatisch per e-mail doorgestuurd naar een admin**
+
+In deze projectconfiguratie staat `MAIL_MAILER=log`, waardoor e-mails worden gelogd (voor testdoeleinden) in plaats van effectief verzonden.
+De e-mails worden gericht aan `ADMIN_EMAIL=admin@ehb.be`, zoals vereist in de opdracht.
+
+---
+
+### 🛠️ Adminpaneel
+
+* Afzonderlijke admin layout
+* Beveiligd via middleware
+* Adminfunctionaliteiten:
+
+  * gebruikersbeheer
+  * beheer van foto’s
+  * beheer van nieuws
+  * beheer van FAQ
+  * bekijken van contactberichten
+
+---
+
+## 🧱 Technische vereisten
+
+* Laravel (nieuwste versie bij start van het project)
+* MVC-architectuur
+* Controllers per functionaliteit
+* Eloquent models per entiteit
+* Database-relaties:
+
+  * one-to-many
+  * many-to-many
+* CSRF-bescherming
+* XSS-bescherming
+* Client-side validatie
+* Routes via controllers en middleware
+* Meerdere layouts:
+
+  * publieke layout
+  * admin layout
+* Git-versiebeheer met duidelijke commitgeschiedenis
+* `vendor` en `node_modules` uitgesloten via `.gitignore`
+
+---
+
+## 🗄️ Database
+
+De applicatie is volledig seedbaar via:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+### Default admin account
+
+**Admin account (verplicht volgens opdracht):**
+
+* **Username:** admin
+* **Email:** [admin@ehb.be](mailto:admin@ehb.be)
+* **Password:** Password!321
+
+### User account
+
+**Extra user account (testdoeleinden):**
+
+* **Username:** Rania
+* **Email:** [rania@test.be](mailto:rania@test.be)
+* **Password:** Password!321
+
+---
+
+## ⚙️ Installatie-instructies
+
+Volg onderstaande stappen om het project lokaal op te starten:
+
+```bash
+git clone <github-repository-url>
+cd museum
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan storage:link
+php artisan migrate:fresh --seed
+npm run dev
+php artisan serve
+```
+
+### 🌐 Applicatie openen
+
+* Bij gebruik van Laravel Herd:
+  `http://museum-laravel.test`
+* Bij gebruik van `php artisan serve`:
+  `http://127.0.0.1:8000`
+
+⚠️ Vergeet niet om je eigen databasegegevens in het `.env`-bestand in te stellen.
+
+---
+
+## 📚 Bronnen
+
+* Laravel. (2024). *Laravel documentation*. [https://laravel.com/docs](https://laravel.com/docs)
+* Laravel. (2024). *Starter kits – Breeze*. [https://laravel.com/docs/starter-kits](https://laravel.com/docs/starter-kits)
+* Laravel. (2024). *Eloquent ORM*. [https://laravel.com/docs/eloquent](https://laravel.com/docs/eloquent)
+* Laravel. (2024). *Eloquent relationships*. [https://laravel.com/docs/eloquent-relationships](https://laravel.com/docs/eloquent-relationships)
+* Laravel. (2024). *Blade templates*. [https://laravel.com/docs/blade](https://laravel.com/docs/blade)
+* Laravel. (2024). *Validation*. [https://laravel.com/docs/validation](https://laravel.com/docs/validation)
+* Laravel. (2024). *Filesystem / File storage*. [https://laravel.com/docs/filesystem](https://laravel.com/docs/filesystem)
+* Laravel. (2024). *Middleware*. [https://laravel.com/docs/middleware](https://laravel.com/docs/middleware)
+* PHP Group. (2024). *PHP documentation*. [https://www.php.net/docs.php](https://www.php.net/docs.php)
+* Mozilla Developer Network. (2024). *MDN Web Docs*. [https://developer.mozilla.org](https://developer.mozilla.org)
+* Erasmushogeschool Brussel. (2024). *Cursusmateriaal Backend Web*.
+
+---
+
+## 🎥 Screencast
+
+HIER VOEG IK STRAKS HET LINK
+
+---
+
+## 👩‍💻 Auteur
+
+**Rania Azaoum**
+
+---
+
+## 🎓 Opleiding
+
+Student **2de jaar Toegepaste Informatica**
+**Erasmushogeschool Brussel (EhB)**
