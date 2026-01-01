@@ -190,8 +190,9 @@ php artisan migrate:fresh --seed
 Volg onderstaande stappen om het project lokaal op te starten:
 
 ```bash
-git clone <github-repository-url>
-cd museum
+git clone https://github.com/asxmr/museum-laravel.git
+cd museum-laravel
+
 composer install
 npm install
 cp .env.example .env
