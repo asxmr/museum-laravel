@@ -175,14 +175,6 @@ php artisan migrate:fresh --seed
 * **Email:** [admin@ehb.be](mailto:admin@ehb.be)
 * **Password:** Password!321
 
-### User account
-
-**Extra user account (testdoeleinden):**
-
-* **Username:** Rania
-* **Email:** [rania@test.be](mailto:rania@test.be)
-* **Password:** Password!321
-
 ---
 
 ## ⚙️ Installatie-instructies
@@ -210,11 +202,19 @@ php artisan serve
 * Bij gebruik van `php artisan serve`:
   `http://127.0.0.1:8000`
 
-⚠️ Vergeet niet om je eigen databasegegevens in het `.env`-bestand in te stellen.
+⚠️ **Belangrijk**
+
+De docent gebruikt een **eigen `.env`-bestand** om met de database te verbinden.  
+Zorg er daarom voor dat alle **migraties en seeders correct werken** bij het uitvoeren van:
+
+```bash
+php artisan migrate:fresh --seed
+```
 
 ---
 
 ## 📚 Bronnen
+
 
 * Laravel. (2024). *Laravel documentation*. [https://laravel.com/docs](https://laravel.com/docs)
 * Laravel. (2024). *Starter kits – Breeze*. [https://laravel.com/docs/starter-kits](https://laravel.com/docs/starter-kits)
