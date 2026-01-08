@@ -232,7 +232,9 @@ php artisan serve
 
 ## 🎥 Screencast
 
-HIER VOEG IK STRAKS HET LINK
+Bekijk hier de demonstratie van de applicatie:
+
+[▶️ Bekijk de screencast](./screencast/Museum-Laravel-Screencast.mp4)
 
 ---
 
