@@ -236,6 +236,8 @@ Bekijk hier de demonstratie van de applicatie:
 
 [▶️ Bekijk de screencast](./screencast/Museum-Laravel-Screencast.mp4)
 
+*(Indien de link niet werkt, kan de video ook geopend worden via `/screencast/Museum-Laravel-Screencast.mp4`.)*
+
 ---
 
 ## 👩‍💻 Auteur
