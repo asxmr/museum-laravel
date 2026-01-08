@@ -216,17 +216,17 @@ php artisan migrate:fresh --seed
 ## 📚 Bronnen
 
 
-* Laravel. (2024). *Laravel documentation*. [https://laravel.com/docs](https://laravel.com/docs)
-* Laravel. (2024). *Starter kits – Breeze*. [https://laravel.com/docs/starter-kits](https://laravel.com/docs/starter-kits)
-* Laravel. (2024). *Eloquent ORM*. [https://laravel.com/docs/eloquent](https://laravel.com/docs/eloquent)
-* Laravel. (2024). *Eloquent relationships*. [https://laravel.com/docs/eloquent-relationships](https://laravel.com/docs/eloquent-relationships)
-* Laravel. (2024). *Blade templates*. [https://laravel.com/docs/blade](https://laravel.com/docs/blade)
-* Laravel. (2024). *Validation*. [https://laravel.com/docs/validation](https://laravel.com/docs/validation)
-* Laravel. (2024). *Filesystem / File storage*. [https://laravel.com/docs/filesystem](https://laravel.com/docs/filesystem)
-* Laravel. (2024). *Middleware*. [https://laravel.com/docs/middleware](https://laravel.com/docs/middleware)
-* PHP Group. (2024). *PHP documentation*. [https://www.php.net/docs.php](https://www.php.net/docs.php)
-* Mozilla Developer Network. (2024). *MDN Web Docs*. [https://developer.mozilla.org](https://developer.mozilla.org)
-* Erasmushogeschool Brussel. (2024). *Cursusmateriaal Backend Web*.
+* Laravel. (2025). *Laravel documentation*. [https://laravel.com/docs](https://laravel.com/docs)
+* Laravel. (2025). *Starter kits – Breeze*. [https://laravel.com/docs/starter-kits](https://laravel.com/docs/starter-kits)
+* Laravel. (2025). *Eloquent ORM*. [https://laravel.com/docs/eloquent](https://laravel.com/docs/eloquent)
+* Laravel. (2025). *Eloquent relationships*. [https://laravel.com/docs/eloquent-relationships](https://laravel.com/docs/eloquent-relationships)
+* Laravel. (2025). *Blade templates*. [https://laravel.com/docs/blade](https://laravel.com/docs/blade)
+* Laravel. (2025). *Validation*. [https://laravel.com/docs/validation](https://laravel.com/docs/validation)
+* Laravel. (2025). *Filesystem / File storage*. [https://laravel.com/docs/filesystem](https://laravel.com/docs/filesystem)
+* Laravel. (2025). *Middleware*. [https://laravel.com/docs/middleware](https://laravel.com/docs/middleware)
+* PHP Group. (2025). *PHP documentation*. [https://www.php.net/docs.php](https://www.php.net/docs.php)
+* Mozilla Developer Network. (2025). *MDN Web Docs*. [https://developer.mozilla.org](https://developer.mozilla.org)
+* Erasmushogeschool Brussel. (2025-2026). *Cursusmateriaal Backend Web*.
 
 ---
 
