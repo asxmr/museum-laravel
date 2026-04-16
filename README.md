@@ -9,6 +9,8 @@ De applicatie stelt een **museum / fotogalerij** voor waar bezoekers foto’s ku
 Geregistreerde gebruikers beschikken over een profiel en kunnen actief interageren met de inhoud.
 Admins beheren de volledige website via een beveiligd adminpaneel.
 
+In eerste instantie werd dit project ontwikkeld met een focus op de backend. Vervolgens heb ik zelf een extra frontend uitgewerkt, met als doel de gebruiksvriendelijkheid van de applicatie te verbeteren en de website te kunnen hergebruiken als portfolio.
+
 Screenshots van de applicatie zijn beschikbaar in de map `/screenshots`.
 
 ---
